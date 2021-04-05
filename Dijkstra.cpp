@@ -70,7 +70,7 @@ void addEdge(vector<iPair> adj[], City u, City v, int wt){
 
 //algoritma Dijkstra
 void shortestPath(vector<pair<City,int> > adj[], int V, City src, City dst){
-	//deklarasi priority queue
+    //deklarasi priority queue
     priority_queue<iPair, vector<iPair>, greater<iPair> > pq;
     
     //jarak dari source ke source adalah 0
@@ -79,18 +79,18 @@ void shortestPath(vector<pair<City,int> > adj[], int V, City src, City dst){
     //masukkan ke pq dengan format pair<source, dist>
     pq.push(make_pair(src, dist[src]));
 	
-	//selama pq belum habis (masih ada jalan yang belum ditelusuri)
+    //selama pq belum habis (masih ada jalan yang belum ditelusuri)
     while(!pq.empty()){
     	//u untuk menampung source
         City u = pq.top().first;
-		pq.pop();
+        pq.pop();
 		
-		//jika kota saat ini adalah kota tujuan, maka break
+        //jika kota saat ini adalah kota tujuan, maka break
         if(dst == u) break;
         
         //iterasi semua kota yang bertetangga dengan kota saat ini
         for(auto x:adj[u]){
-        	//v untuk menampung destination dan weight menampung jaraknya
+            //v untuk menampung destination dan weight menampung jaraknya
             City v = x.first;
             int weight = x.second;
             
@@ -105,7 +105,7 @@ void shortestPath(vector<pair<City,int> > adj[], int V, City src, City dst){
 }
 
 int main(){
-	//banyak kota
+    //banyak kota
     int V = 14;
     
     //inisialisasi vector sebagai daftar keterhubungan antar kota dengan pair<destination, weight>
@@ -115,9 +115,9 @@ int main(){
     City asal, tujuan;
     cout<<"Kota yang tersedia:"<<endl;
     for(int i=0;i<14;i++){
-    	printf("%2d ",i);
-		cout<<cek(i)<<endl;
-	}
+        printf("%2d ",i);
+        cout<<cek(i)<<endl;
+    }
     cout<<"Masukkan angka kota asal: "; scanf("%d",&asal);
     cout<<"Masukkan angka kota tujuan: "; scanf("%d",&tujuan);
     
@@ -139,7 +139,7 @@ int main(){
     addEdge(adj, AM, VP, 5);
     addEdge(adj, AM, SW, 6);
     addEdge(adj, KH, TLE, 6);
-	addEdge(adj, VE, VP, 7);
+    addEdge(adj, VE, VP, 7);
     addEdge(adj, JU, AE, 7);
     addEdge(adj, VE, BW, 11);
     addEdge(adj, AE, BW, 13);
